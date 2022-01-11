@@ -12,3 +12,18 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const gel = document.getElementsByClassName('gallery');
+console.log(gel);
+const gelArr = [];
+
+images.forEach(element => {
+  const el = document.createElement('li');
+  el.setAttribute('url', element.url);
+  el.setAttribute('alt', element.alt);
+  // !!!
+  console.log(el);
+  gelArr.push(el);
+});
+console.log(gel);
+// gel.append(...gelArr);
