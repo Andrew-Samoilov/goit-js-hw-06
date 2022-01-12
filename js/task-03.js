@@ -13,17 +13,26 @@ const images = [
   },
 ];
 
-const gel = document.getElementsByClassName('gallery');
-console.log(gel);
-const gelArr = [];
+const gall = document.getElementsByClassName('gallery');
+console.log(gall);
+const gelaryArr = [];
 
 images.forEach(element => {
-  const el = document.createElement('li');
-  el.setAttribute('url', element.url);
-  el.setAttribute('alt', element.alt);
-  // !!!
-  console.log(el);
-  gelArr.push(el);
+  const elem = document.createElement('li');
+  elem.classList.add('gallery-list-item');
+  const imag = document.createElement('img');
+  imag.setAttribute('src', element.url);
+
+  // imag.alt = element.alt;
+  imag.setAttribute('alt', element.alt);
+
+  elem.appendChild(imag);
+
+  console.log('-', elem);
+
+  gelaryArr.push(elem);
+
+  // console.log('--', gelaryArr);
 });
-console.log(gel);
-// gel.append(...gelArr);
+
+gall.insertAdjacentHTML("afterbegin", ...gelaryArr);
