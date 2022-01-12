@@ -13,26 +13,39 @@ const images = [
   },
 ];
 
-const gall = document.getElementsByClassName('gallery');
-console.log(gall);
-const gelaryArr = [];
+const makeListItemMarkup = img => {
+  const { url, alt } = img;
+  return `<li class="gallery-list-item"><img src="${url}" alt="${alt}" class="gallery-list-image"></li>`;
+}
 
-images.forEach(element => {
-  const elem = document.createElement('li');
-  elem.classList.add('gallery-list-item');
-  const imag = document.createElement('img');
-  imag.setAttribute('src', element.url);
+// console.log(makeListItem(images[0]));
+const gall = document.querySelector('.gallery');
+const makeListItemRows = images
+  .map(makeListItemMarkup)
+  .join('');
 
-  // imag.alt = element.alt;
-  imag.setAttribute('alt', element.alt);
+gall.insertAdjacentHTML("afterbegin", makeListItemRows);
 
-  elem.appendChild(imag);
+// {
+//   const gall = document.querySelector('.gallery');
+//   // console.log(gall);
+//   const gelaryArr = [];
 
-  console.log('-', elem);
+//   images.forEach(element => {
+//     const elem = document.createElement('li');
+//     elem.classList.add('gallery-list-item');
+//     const imag = document.createElement('img');
+//     imag.setAttribute('src', element.url);
 
-  gelaryArr.push(elem);
+//     // imag.alt = element.alt;
+//     imag.setAttribute('alt', element.alt);
+//     imag.classList.add('gallery-list-image');
+//     elem.appendChild(imag);
 
-  // console.log('--', gelaryArr);
-});
+//     gelaryArr.push(elem);
+//   });
 
-gall.insertAdjacentHTML("afterbegin", ...gelaryArr);
+//   gall.append(...gelaryArr);
+// }
+// gall.insertAdjacentHTML("afterbegin", gelaryArr);
+
