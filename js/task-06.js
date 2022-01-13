@@ -1,20 +1,21 @@
 const inputField = document.querySelector('#validation-input');
-console.log(inputField);
+// console.log(inputField);
 
 function onBlur() {
-    console.log(this.value.length);
-
-    console.log(this.dataset.length);
-
-    this.style = '#validation-input.invalid';
+    // console.log(this.value.length);
+    // console.log(this.dataset.length);
 
     // console.log(this.style);
-    if (this.value.length === this.dataset.length) {
-        this.classList.remove('validation-input.invalid');
-        this.classList.add('validation-input.valid');
+    if (this.value.length === Number(this.dataset.length)) {
+        // console.log('inside if', this.value.length);
+        // console.log('inside if', this.dataset.length);
+        this.classList.remove('invalid');
+        this.classList.add('valid');
     } else {
-        this.classList.remove('validation-input.valid');
-        this.classList.add('validation-input.invalid');
+        // console.log('inside else', this.value.length);
+        // console.log('inside else', this.dataset.length);
+        this.classList.remove('valid');
+        this.classList.add('invalid');
     }
 
 }
