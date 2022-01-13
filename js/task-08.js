@@ -11,8 +11,10 @@ function onFormSubmit(event) {
         email: formElements.email.value,
         password: formElements.password.value,
         reset() {
-            this.email = '';
-            this.password = '';
+            // this.email = '';
+            // this.password = '';
+            // console.log(`reset`);
+            form.reset();
         }
     };
 
